@@ -1,0 +1,89 @@
+
+{% extends 'basic.html' %}
+<html>
+{% block head %}
+<head>
+ {% load static %}
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>signup</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+<style type="text/css">
+	
+#random{
+width: 500px;
+margin:auto;
+margin-top: 100px;
+}
+
+</style>
+
+ <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&language=en">   
+ </script>
+
+</head>
+{% endblock %}
+
+{% block body_block %}
+<body>
+
+<!--Form with header-->
+<form  id="random" method="post">
+{% csrf_token %}
+<div class="card">
+    <div class="card-block">
+
+        <!--Header-->
+        <div class="form-header  ">
+            <h3 align="center">Register</h3>
+        </div>
+
+        <!--Body-->
+        <div class="md-form">
+            <i class="fa fa-user prefix"></i>
+            {{signup.username}}
+            <label for="form3">Your name</label>
+        </div>
+        <div class="md-form">
+            <i class="fa fa-envelope prefix"></i>
+            {{signup.email}}
+            <label for="form2">Your email</label>
+        </div>
+
+        <div class="md-form">
+            <i class="fa fa-lock prefix"></i>
+            {{signup.password}}
+            <label for="form4">Your password</label>
+        </div>
+
+        <div class="text-center">
+            <button class="btn btn-indigo">Sign up</button>
+           
+        </div>
+        <br>
+    </div>
+</div>
+</form>
+<!--/Form with header-->
+
+ <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+ 
+  <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+
+  <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+ 
+  <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+
+</body>
+{% endblock %}
+</html>
